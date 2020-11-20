@@ -10,19 +10,23 @@ const reducer = (state, action) => {
 };
 
 const Counter = () => {
-  const [count, dispatch] = useReducer(reducer, {
+  const [state, dispatch] = useReducer(reducer, {
     count: 0,
   });
 
   return (
-    <>
+    <main className='counter-container'>
       <div>
         <h1>Counter!</h1>
-        <button onClick={() => dispatch('INCREMENT')}>Increment</button>
-        <button onClick={() => dispatch('DECREMENT')}>Decrement</button>
+        <button onClick={() => dispatch({ type: 'INCREMENT' })}>
+          Increment
+        </button>
+        <button onClick={() => dispatch({ type: 'DECREMENT' })}>
+          Decrement
+        </button>
       </div>
-      <div className='count'>{count}</div>
-    </>
+      <div className='count'>{state.count}</div>
+    </main>
   );
 };
 
